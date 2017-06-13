@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/App.js',
   output: {
     path: __dirname + '/dist',
     filename: 'bundle.js',
@@ -15,12 +15,7 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(), // Enable HMR
-    new HtmlWebpackPlugin({
-        inject: 'body',
-        filename: 'index.html',
-        template: __dirname + '/src/index.html',
-    })
+    new webpack.HotModuleReplacementPlugin() // Enable HMR
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
