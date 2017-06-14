@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
 import Main from "./Main";
 import Login from "./Login";
+import SignUp from "./SignUp";
+import Woofers from "./Woofers";
 
 const Routes = () =>
   <div>
@@ -17,11 +19,10 @@ const Routes = () =>
       <Switch>
         <Route exact path="/" component={Main} />
         <Route path="/login" component={Login} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/woofers" component={Woofers} />
       </Switch>
     </Route>
-
-    {/* <Route path="/sign-up" component={SignUp} />
-    <Route path="/woofers" component={Woofers} />*/}
   </div>;
 
 export default Routes;
