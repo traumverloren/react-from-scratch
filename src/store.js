@@ -3,10 +3,10 @@ import createHistory from "history/createBrowserHistory";
 import { routerReducer, routerMiddleware } from "react-router-redux";
 
 // Here's a reducer...
-const reducer = (state = { name: "Wilbur" }, action) => {
+const reducer = (state = { name: "" }, action) => {
   switch (action.type) {
-    case "SET_NEW_NAME":
-      return { name: action.newName };
+    case "LOG_IN":
+      return { name: action.name };
     default:
       return state;
   }
@@ -30,7 +30,7 @@ const composeEnhancers = typeof window === "object" &&
 
 const reducers = combineReducers({
   reducer,
-  router: routerReducer
+  routerReducer
 });
 
 // Add the reducer to your store on the `router` key

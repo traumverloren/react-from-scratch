@@ -1,6 +1,7 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import Main from "./Main";
+import Login from "./Login";
 
 const Routes = () =>
   <div>
@@ -12,11 +13,15 @@ const Routes = () =>
     </ul>
 
     <hr />
+    <Route path="/">
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route path="/login" component={Login} />
+      </Switch>
+    </Route>
 
-    <Route exact path="/" component={Main} />
-    {/* <Route path="/login" component={Login} />
-      <Route path="/sign-up" component={SignUp} />
-      <Route path="/woofers" component={Woofers} />*/}
+    {/* <Route path="/sign-up" component={SignUp} />
+    <Route path="/woofers" component={Woofers} />*/}
   </div>;
 
 export default Routes;
