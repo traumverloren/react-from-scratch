@@ -1,25 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
+import { ConnectedRouter } from "react-router-redux";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import Main from "./Main";
-
-// Here's a reducer...
-const reducer = (state = { name: "Wilbur" }, action) => {
-  switch (action.type) {
-    case "SET_NEW_NAME":
-      return { name: action.newName };
-    default:
-      return state;
-  }
-};
-
-// ... and store.
-const store = createStore(reducer);
+import Routes from "./Routes";
+import { store, history } from "./store";
 
 render(
   <Provider store={store}>
-    <Main />
+    {/* ConnectedRouter will use the store from Provider automatically */}
+    <ConnectedRouter history={history}>
+      <Routes />
+    </ConnectedRouter>
   </Provider>,
   document.getElementById("root")
 );
