@@ -18,7 +18,8 @@ module.exports = {
     extensions: [".js", ".jsx"]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin() // Enable HMR
+    new webpack.HotModuleReplacementPlugin(), // Enable HMR
+    new webpack.optimize.UglifyJsPlugin() // minify everything
   ],
   devServer: {
     contentBase: path.join(__dirname, "dist"),
