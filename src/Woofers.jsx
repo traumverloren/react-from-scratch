@@ -19,7 +19,7 @@ function fakeDelay(ms) {
 }
 
 const LoadableWooferImages = Loadable({
-  loader: () => fakeDelay(200).then(() => import('./WooferImages')),
+  loader: () => fakeDelay(400).then(() => import('./WooferImages')),
   LoadingComponent: MyLoadingComponent,
   delay: 300
 });
