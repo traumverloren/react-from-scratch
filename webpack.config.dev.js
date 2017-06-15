@@ -1,5 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
+const Visualizer = require("webpack-visualizer-plugin");
 
 module.exports = {
   entry: "./src/App.jsx",
@@ -11,13 +12,17 @@ module.exports = {
     loaders: [
       { test: /\.js$/, loader: "babel-loader", exclude: /node_modules/ },
       { test: /\.jsx$/, loader: "babel-loader", exclude: /node_modules/ },
-      { test: /\.(png|jpg|gif)$/, loader: "url-loader" }
+      {
+        test: /\.(png|jpg|gif)$/,
+        loader: "file-loader?name=./assets/[name].[ext]"
+      }
     ]
   },
   resolve: {
     extensions: [".js", ".jsx"]
   },
   plugins: [
+    new Visualizer(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("development"),
