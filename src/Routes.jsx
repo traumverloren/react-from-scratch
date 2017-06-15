@@ -5,7 +5,7 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 import Woofers from "./Woofers";
 
-console.log("I like pizza");
+console.log("I like pizza A LOT");
 
 const Routes = () =>
   <div>
@@ -21,10 +21,10 @@ const Routes = () =>
     <hr />
     <Route path={`${process.env.PUBLIC_URL}/`}>
       <Switch>
-        <Route exact path={`${process.env.PUBLIC_URL}/`} component={Main} />
-        <Route path={`${process.env.PUBLIC_URL}/login`} component={Login} />
-        <Route path={`${process.env.PUBLIC_URL}/sign-up`} component={SignUp} />
-        <Route path={`${process.env.PUBLIC_URL}/woofers`} component={Woofers} />
+        <Route exact path="/" component={Main} />
+        <Route path="/login" component={Login} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path="/woofers" component={Woofers} />
       </Switch>
     </Route>
   </div>;
