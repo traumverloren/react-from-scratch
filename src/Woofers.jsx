@@ -1,13 +1,30 @@
-import React from "react";
-import woofers from "../assets/doggo-lifecycle.jpg";
-import doggos from "../assets/doggos-2.jpg";
+import path from 'path';
+import React from 'react';
+import Loadable from 'react-loadable';
 
-const Woofers = () =>
-  <div>
-    <h1>What is Doggo & Woofer?</h1>
-    <img alt="woofers chart" src={woofers} />
-    <h1>Is it Doggo or Woofer?</h1>
-    <img alt="woofers chart 2" src={doggos} />
-  </div>;
+function MyLoadingComponent({ error }) {
+  if (error) {
+    return <div>Error!</div>;
+  } else {
+    return <div>Loading...</div>;
+  }
+}
+
+function fakeDelay(ms) {
+  return new Promise(resolve => {
+    setTimeout(resolve, ms);
+  });
+}
+
+const LoadableWooferImages = Loadable({
+  loader: () => fakeDelay(500).then(() => import('./WooferImages')),
+  LoadingComponent: MyLoadingComponent
+});
+
+class Woofers extends React.Component {
+  render() {
+    return <LoadableWooferImages/>;
+  }
+}
 
 export default Woofers;

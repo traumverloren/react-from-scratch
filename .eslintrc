@@ -1,4 +1,12 @@
-{
+{   "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 2016,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "allowImportExportEverywhere": true
+    },
     "extends": [
       "airbnb",
       "prettier",
@@ -19,12 +27,5 @@
       "jest": true,
       "phantomjs": true,
       "es6": true
-    },
-    "parserOptions": {
-      "ecmaVersion": 2016,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
     }
 }
