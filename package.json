@@ -5,8 +5,8 @@
   "homepage": "https://traumverloren.github.io/react-from-scratch",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --inline",
-    "build": "webpack",
+    "start": "webpack-dev-server --inline --config=webpack.config.dev.js",
+    "build": "webpack --p --config=webpack.config.prod.js",
     "deploy": "npm run build && gh-pages -d dist",
     "test": "jest",
     "eslint": "eslint \"src/**/*.js\" \"src/**/*.jsx\"",
